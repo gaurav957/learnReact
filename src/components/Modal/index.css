@@ -1,0 +1,11 @@
+
+.modal{
+    border: 1px solid black;
+    width: 80%;
+    /* margin: 0 auto; */
+    position: fixed;
+    top: 12px;
+    background-color: #fff;
+    left: 50%;
+transform: translateX(-50%);
+}

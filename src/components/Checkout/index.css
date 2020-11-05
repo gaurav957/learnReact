@@ -1,0 +1,9 @@
+.check-outer{
+    margin-top:10px;
+    background-color: orange;
+    text-align: center;
+}
+.check{
+    display: inline-block;
+    padding:5px 15px;
+}

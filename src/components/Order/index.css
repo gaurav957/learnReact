@@ -1,0 +1,19 @@
+.orderItems ul{
+    list-style-type: none;
+}
+
+.orderItem{
+    display:inline-block;
+}
+
+.orderItemQuant{
+    display: inline-block;
+}
+
+.btn{
+    display: inline-block;
+    background-color:grey;
+    margin: 5px;
+    padding:5px 15px;
+    color:#fff;
+}
