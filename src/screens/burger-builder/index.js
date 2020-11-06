@@ -6,6 +6,8 @@ import Burger from '../../components/Burger'
 import BurgerControls from '../../components/BurgerControls'
 import Order from '../../components/Order'
 import Modal from '../../components/Modal'
+import Backdrop from '../../components/Backdrop'
+import Axios from 'axios';
 
 class BurgerBuilder extends Component{
 
@@ -16,7 +18,8 @@ class BurgerBuilder extends Component{
             Salad:1,
             Bacon:1
         },
-        price:4
+        price:4,
+        buy:false,
         
     }
 
@@ -36,6 +39,20 @@ class BurgerBuilder extends Component{
                 [ingredient]:prevstate.ingredients[ingredient]-1
             }
         }))
+    }
+
+    openModal=()=>{
+        this.setState({buy:true});
+    }
+
+    hidebuy=()=>{
+        this.setState({buy:false});
+    }
+
+    makeOrder=()=>{
+        Axios.post('https://burger-bilder-1455c.firebaseio.com/order',{
+            ...this.state
+        }).then(response=>{console.log(response)}).catch(e=>{console.log(e)})
     }
 
     
@@ -59,9 +76,12 @@ class BurgerBuilder extends Component{
                 <Burger allIngredients = {this.state.ingredients} />
             
                 {createControls}
-                <Modal>
-                    <Order allIngredients = {this.state.ingredients} price={this.state.price} />
+                <button onClick={this.openModal}>BUY</button>
+
+                <Modal show={this.state.buy}>
+                    <Order allIngredients = {this.state.ingredients} price={this.state.price} cancel={this.hidebuy} order={this.makeOrder}/>
                 </Modal>
+                <Backdrop show={this.state.buy} cancel={this.hidebuy} />
                 
             </Auxi>
         )

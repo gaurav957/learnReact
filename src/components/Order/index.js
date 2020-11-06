@@ -22,9 +22,6 @@ const Order=(props)=>{
 
     }
 
-
-
-
     return(
         <div>
             <div className="orderItems">
@@ -33,8 +30,8 @@ const Order=(props)=>{
                </ul>
             </div>
             <div className="price">Price:{props.price}</div>
-            <div className="btn">Cancel</div>
-            <div className="btn">Checkout</div>
+            <div className="btn" onClick={props.cancel}>Cancel</div>
+            <div className="btn" onClick={props.order}>Checkout</div>
         </div>
     )
 }
