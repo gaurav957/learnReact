@@ -30,8 +30,9 @@ const Order=(props)=>{
                </ul>
             </div>
             <div className="price">Price:{props.price}</div>
+            <div>Continue to Checkout</div>
             <div className="btn" onClick={props.cancel}>Cancel</div>
-            <div className="btn" onClick={props.order}>Checkout</div>
+            <div className="btn" onClick={props.order}>Go to Checkout</div>
         </div>
     )
 }
